@@ -1,2 +1,225 @@
-# Snow
-I like schedule 
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Linktree — Snow.Mc</title>
+  <style>
+    :root{
+      --bg:#071027;
+      --card:#071827;
+      --accent:#60a5fa;
+      --muted:#9aa6bf;
+      --glass: rgba(255,255,255,0.03);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(180deg,#071027 0%, #071827 70%);
+      color:#e6eef8;
+      padding:24px;
+    }
+
+    .card{
+      width:100%;
+      max-width:820px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;
+      padding:22px;
+      box-shadow: 0 12px 30px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+    }
+
+    .avatar{
+      flex:0 0 140px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .avatar img{
+      width:128px;
+      height:128px;
+      object-fit:cover;
+      border-radius:18px;
+      border:3px solid rgba(255,255,255,0.06);
+      box-shadow: 0 8px 22px rgba(2,6,23,0.6);
+      background:linear-gradient(135deg,var(--accent), #7dd3fc);
+    }
+
+    .content{flex:1; min-width:0}
+    h1{
+      margin:0 0 6px 0;
+      font-size:20px;
+      line-height:1.1;
+    }
+    p.lead{
+      margin:0 0 12px 0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .features{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 18px;
+      margin:6px 0 12px 0;
+    }
+    .feature{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      background: rgba(255,255,255,0.02);
+      padding:8px 12px;
+      border-radius:10px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:14px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+
+    .btn{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:700;
+      cursor:pointer;
+      border: none;
+      transition:all .15s ease;
+      user-select:none;
+    }
+    .btn.primary{
+      background: linear-gradient(90deg,var(--accent), #7dd3fc);
+      color:#05233a;
+      box-shadow: 0 10px 26px rgba(96,165,250,0.12);
+    }
+    .btn.ghost{
+      background: rgba(255,255,255,0.03);
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .btn.small{ padding:8px 10px; font-weight:600; font-size:13px; border-radius:8px }
+
+    .links{
+      margin-top:12px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .links a{ color:var(--accent); font-weight:700; text-decoration:none }
+
+    footer{
+      width:100%;
+      margin-top:14px;
+      font-size:13px;
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+    }
+
+    @media (max-width:720px){
+      .card{flex-direction:column; align-items:center}
+      .avatar{order:0}
+      .content{text-align:center}
+      footer{flex-direction:column; align-items:center}
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    <div class="avatar" aria-hidden="false">
+      <!-- Substitua 'snow-avatar.jpg' pelo caminho da sua foto -->
+      <img src="snow-avatar.jpg" alt="Foto do Snow.Mc — avatar">
+    </div>
+
+    <div class="content">
+      <h1 id="title">🔥 🌟 Bem-vindo ao Linktree oficial do <strong>Snow.Mc</strong>! 🌟</h1>
+      <p class="lead">Em parceria com o incrível <strong>Hiro MC</strong> 💥, reunimos tudo para transformar e otimizar seu Minecraft — texturas, addons, packs de FPS e muito mais, sempre atualizados.</p>
+
+      <div class="features" aria-hidden="false">
+        <div class="feature">🎨 Texturas exclusivas & estilosas</div>
+        <div class="feature">🧩 Addons que ampliam a gameplay</div>
+        <div class="feature">⚡ Packs otimizados para FPS</div>
+        <div class="feature">🔧 Recursos feitos por <strong>Snow.Mc</strong></div>
+        <div class="feature">🤝 Colabs com <strong>Hiro MC</strong></div>
+        <div class="feature">📥 Downloads rápidos e organizados</div>
+      </div>
+
+      <div class="actions" role="group" aria-label="Ações">
+        <button class="btn primary" id="openLinkBtn" title="Abrir Linktree">➡️ Entrar no Linktree</button>
+        <button class="btn ghost" id="copyBtn" title="Copiar link">📋 Copiar link</button>
+        <a class="btn ghost small" id="hiroBtn" href="https://linktr.ee/Hiro.MC" target="_blank" rel="noopener noreferrer" title="Seguir Hiro MC">🤝 Seguir Hiro MC</a>
+        <button class="btn ghost small" id="downloadBtn" title="Baixar minha foto">⬇️ Baixar foto</button>
+      </div>
+
+      <div class="links" aria-label="Link">
+        🔗 <strong>Link oficial:</strong> <a id="link" href="https://linktr.ee/Snow.Mc" target="_blank" rel="noopener noreferrer">https://linktr.ee/Snow.Mc</a>
+      </div>
+
+      <footer>
+        <div>🎮 Torne seu Minecraft mais bonito, leve e divertido — <strong>entra agora</strong>!</div>
+        <div style="color:var(--muted)">© Snow.Mc & Hiro MC</div>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    const LINK = "https://linktr.ee/Snow.Mc";
+    const avatarSrc = "snow-avatar.jpg"; // altere se a sua imagem tiver outro nome
+
+    document.getElementById('openLinkBtn').addEventListener('click', () => {
+      window.open(LINK, '_blank', 'noopener');
+    });
+
+    document.getElementById('copyBtn').addEventListener('click', async (e) => {
+      try {
+        await navigator.clipboard.writeText(LINK);
+        const btn = e.currentTarget;
+        const original = btn.innerHTML;
+        btn.innerHTML = '✔ Copiado';
+        setTimeout(() => btn.innerHTML = original, 1700);
+      } catch (err) {
+        alert('Não foi possível copiar automaticamente. Copie manualmente: ' + LINK);
+      }
+    });
+
+    // Baixar a foto (se estiver local)
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      // Tenta baixar o arquivo da mesma pasta
+      const a = document.createElement('a');
+      a.href = avatarSrc;
+      a.download = 'snow-avatar.jpg';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    });
+
+    // Se quiser, detecta se a imagem não existe e substitui por placeholder
+    (function checkImage(){
+      const img = document.querySelector('.avatar img');
+      img.onerror = () => {
+        img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+          '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="100%" height="100%" fill="#0b1220"/><text x="50%" y="50%" fill="#7dd3fc" font-size="24" font-family="Arial" dominant-baseline="middle" text-anchor="middle">Snow.Mc</text></svg>'
+        );
+      };
+    })();
+  </script>
+</body>
+</html>
